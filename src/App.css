@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css?family=Londrina+Solid");
+
+/* Cosmetic content settings */
+
+body {
+  background-color: #333;
+  color: #ccc;  
+  font-family: "Londrina Solid", cursive;
+  text-align: center;   
+  margin: 0;
+  padding: 0;    
+}
+
+button:focus {outline:0;}
+
+.header h1 {
+  font-size: 3.4em;
+  margin: 0.2em 0;
+  letter-spacing: 0.04em;
+}
+
+.content {
+  width: 100%;
+  max-width: 26em;
+  margin: 0 auto;   
+}
+
+.stats {
+  font-size: 2em;
+  text-align: right;
+  margin: 0 1.5em;
+}
+
+.stats__count {
+  font-size: 2em;
+  color: #fff;
+  margin-top: -0.1em;
+}
+
+.burger {
+  width: 70%;
+  height: 60vw;        /* height relates with viewport width */
+  max-height: 15.6em;  /* content's max-width * height = 26em * 0.6 = 15.6em */ 
+  margin: 0 auto 0.5em auto;
+}
+
+.burger__img {
+  width: 100%;
+}
+
+.burger__img--pressed {
+  width: 98.5%;
+}
+
+.booster {  
+  height: 1.5em;
+}
+
+.booster--visible {
+  animation: showContent 1s 1;
+}
+
+.booster--hidden {
+  opacity: 0;
+  animation: hideContent 1s 1;
+}
+
+.menu div {
+  position: relative;     /* needed to position badge */
+}
+
+.badge {
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: -1em;
+  line-height: 1em;
+  height: 1em;
+  width: 1em;
+  background-color: #777;
+  padding: 0.5em;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.coupon {
+  margin: 0.5em;
+  border: 1px dashed #222; 
+  background-color: #444;
+  padding: 0.5em;  
+}
+
+.coupon__offerName {
+  color: #fff;
+  font-size: 2em;
+}
+
+.coupon__prices {    
+  padding: 0 0.5em;
+}
+
+.coupon__newPrice {
+  font-size: 2em;
+  color: #fff;
+}
+
+.coupon__oldPrice {
+  text-decoration: line-through;
+}
+
+.coupon__button button {
+  background-color: rgba(255,165,0,0.8);
+  height: 100%;
+  width: 100%;
+  border: 2px solid  rgba(255,165,0,1);;
+  border-radius: 0.5em;
+  color: #eee;  
+  font-family: "Londrina Solid", cursive;
+  font-size: 1em;
+}
+
+.coupon__button button:focus {
+  background-color: rgba(255, 165, 0, 1);
+}
+
+.coupon__price {
+  font-size: 2.5em;  
+}
+
+.coupon__claim {
+  font-size: 1em;
+}
+
+@keyframes showContent {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hideContent {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* Responsive layout 
+  .- clicker -------------------------------------------.
+  |                                                     |
+  |  .- header --------------------------------------.  |  ---+
+  |  |                                               |  |     |
+  |  |                Burger Clicker                 |  |   5.5 em
+  |  |                                               |  |     |
+  |  '-----------------------------------------------'  |  ---+
+  |                                                     |
+  |  .- content -------------------------------------.  |  ---+
+  |  |                                               |  |     |
+  |  |                                     Burgers   |  |     |
+  |  |                                         147   |  |     |
+  |  |                                               |  |   auto
+  |  |                      img                      |  |     |
+  |  |                                               |  |     |
+  |  |              3.2 burgers / click              |  |     |
+  |  |                                               |  |     |
+  |  '-----------------------------------------------'  |  ---+
+  |                                                     |
+  |  .- menu ----------------------------------------.  |  ---+
+  |  |                                               |  |     |
+  |  |      GAME          COUPONS        PROFILE     |  |   5 em
+  |  |                                               |  |     |
+  |  '-----------------------------------------------'  |  ---+
+  |                                                     |
+  '-----------------------------------------------------'
+*/
+
+.clicker {
+  height: 100vh;
+  display: flex;
+  flex-direction: column; 
+}
+
+.clicker > * {
+  flex: 1 1 auto;  
+}
+
+.content {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content--justified {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.header {
+  max-height: 5.5em;
+  min-height: 5.5em;
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  max-height: 5em;
+  min-height: 5em; 
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.menu > div {
+  flex: 1; 
+  flex-grow: 0;
+}
+
+::-webkit-scrollbar
+{
+  width: 0.5em;  
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.0);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.coupon {
+  display: flex;
+}
+
+.coupon > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+}
+
+.coupon__offer {
+  flex: 4;    
+}
+
+.coupon__prices {
+  flex: 2;  
+}
+
+.coupon__button {
+  flex: 2;  
+} 
