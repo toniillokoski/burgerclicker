@@ -1,10 +1,11 @@
-import React, {Component, useState} from 'react';
-import './App.css';
-import burger from './burger.png';
-import iconburger from './icon-burger.png';
-import iconcoupon from './icon-coupon.png';
-import iconboy from './icon-boy.png';
+import React, {Component} from 'react';
 
+import Stats from './Stats';
+import Burger from './Burger';
+import Booster from './Booster';
+import Menu from './Menu';
+
+import './App.css';
 
 class Clicker extends Component {
 
@@ -38,48 +39,6 @@ class Clicker extends Component {
       </div>
     );
   }
-}
-
-function Stats(props) {
-  return (
-    <div className="stats">
-      <div className="stats__title">Burgers</div>
-      <div className="stats__count">{props.count}</div>
-    </div>
-  );
-}
-
-function Burger(props) {
-  const [pressed, setPressed] = useState(false);
-  const classValue = pressed ? "burger__img : burger__img--pressed" : "burger__img";
-  return (
-    <div className="burger">
-      <img
-      src={burger} 
-      alt="" 
-      className={classValue} 
-      onClick={props.onClick}
-      onPointerDown={() => setPressed(true)}
-      onPointerUp={() => setPressed(false)}
-      />
-   </div>
-  );
-}
-
-function Booster(props) {
-  return (
-    <div className="booster">{props.boost} burgers / click</div>
-  );
-}
-
-function Menu(props) {
-  return (
-    <div className="menu">
-      <div><img src={iconburger} alt="game" /></div>
-      <div><img src={iconcoupon} alt="coupons" /><span className="badge">{props.claimableCoupons}</span></div>
-      <div><img src={iconboy} alt="profile" /></div>
-    </div>
-  );
 }
 
 export default Clicker;
