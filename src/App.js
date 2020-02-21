@@ -28,10 +28,15 @@ class Clicker extends Component {
     return (
       <Router>
         <div className="clicker">
+
           <Route path="/" exact render={props => (
             <Game clicks={this.state.clicks} setClicks={this.setClicks}/>
           )} />
-          <Route path="/coupons" component={Coupons} />
+
+          <Route path="/coupons" render={props => (
+            <Coupons clicks={this.state.clicks} />
+          )} />
+          
           <Route path="/profile" component={Profile} />
           <Menu claimableCoupons={5}/>
         </div>
