@@ -26,7 +26,7 @@ render(){
         <div className="content content--justified">
         <Stats count={this.props.clicks} />
         <Burger  onClick={this.mouseClicked}/>
-        <Booster boost={3.2} />
+        <Booster boost={1} />
         </div>
       </>
     );
